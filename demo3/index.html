@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Sahaay Setu — Citizen &amp; Government Legal Decision Support Platform</title>
+  <meta name="description" content="Dual-interface system: Citizen survivor reporting with Emotion AI, and 4-tier Role-Based Government Administration for Case Workers, District Officers, State Nodal Officers, and MoSJE.">
+  <meta name="theme-color" content="#123B36">
+  
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Top Emergency Alert Bar -->
+  <div class="emergency-bar" role="region" aria-label="Immediate Emergency Hotlines">
+    <div class="wrap">
+      <div class="emergency-tagline">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span id="topBarTagline"><strong>Immediate Danger?</strong> Free 24×7 Helplines:</span>
+      </div>
+      <ul class="emergency-quick-links">
+        <li><a href="tel:112" aria-label="Call 112 Police Emergency">🚨 Police: 112</a></li>
+        <li><a href="tel:181" aria-label="Call 181 Women Helpline">👩 Women: 181</a></li>
+        <li><a href="tel:1098" aria-label="Call 1098 Child Helpline">👶 Child: 1098</a></li>
+        <li><a href="tel:15100" aria-label="Call 15100 Free Legal Aid">⚖️ Legal Aid: 15100</a></li>
+        <li><a href="tel:14416" aria-label="Call 14416 Tele-MANAS Mental Health">🧠 Mental Health: 14416</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Site Header -->
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="#home" data-view="home" aria-label="Sahaay Setu Homepage">
+        <svg class="brand-icon" width="36" height="36" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M17 2.5 29.5 7.5V16C29.5 23.7 24.3 29.9 17 31.5 9.7 29.9 4.5 23.7 4.5 16V7.5L17 2.5Z" fill="#123B36"/>
+          <path d="M12 17.2 15.6 20.8 22.5 13" stroke="#F1E0C2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">
+          Sahaay Setu
+          <span id="brandSubtext">Citizen &amp; Official Justice Bridge</span>
+        </span>
+      </a>
+
+      <!-- Desktop Primary Nav (Citizen View) -->
+      <nav class="primary-nav" id="citizenNav" aria-label="Citizen Navigation">
+        <ul>
+          <li><a href="#home" class="nav-link active" data-view="home" id="navHome">Home</a></li>
+          <li><a href="#helplines" class="nav-link" data-view="helplines" id="navHelplines">Helplines</a></li>
+          <li><a href="#agent" class="nav-link badge-link" data-view="agent" id="navAgent">💬 Assistant</a></li>
+          <li><a href="#describe" class="nav-link" data-view="describe" id="navDescribe">Report</a></li>
+          <li><a href="#wellbeing" class="nav-link" data-view="wellbeing" id="navWellbeing">Well-Being</a></li>
+          <li><a href="#rights" class="nav-link" data-view="rights" id="navRights">Rights</a></li>
+          <li><a href="#user-portal" class="nav-link" data-view="user-portal" id="navUserPortal" style="display:none;">📋 My Case</a></li>
+          <li><a href="#privacy" class="nav-link" data-view="privacy" id="navPrivacy">Privacy</a></li>
+        </ul>
+      </nav>
+
+      <!-- Desktop Government Nav (Visible when logged in as official) -->
+      <nav class="primary-nav" id="govtNav" style="display:none;" aria-label="Government Navigation">
+        <ul>
+          <li><a href="#govt-portal" class="nav-link active" data-view="govt-portal" id="navGovtPortal">🏛️ Official Dashboard</a></li>
+          <li><a href="#rights" class="nav-link" data-view="rights">Statutory Rules</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Right Tools -->
+      <div class="header-right-tools">
+        <!-- User / Citizen Login Button -->
+        <button class="user-login-nav-btn" id="userLoginNavBtn" title="Login as Citizen / Track Case">
+          <span id="userLoginNavIcon">👤</span>
+          <span id="userLoginNavLabel">User Login</span>
+        </button>
+
+        <!-- Government Official Login Button -->
+        <button class="portal-switch-btn" id="portalSwitcherBtn" title="Switch to Government Official Portal">
+          <span id="portalSwitcherIcon">🏛️</span>
+          <span id="portalSwitcherLabel">Govt Login</span>
+        </button>
+
+        <!-- Language Switcher -->
+        <button class="lang-toggle-btn" id="langToggleBtn" title="Switch Language">
+          <span>🌐</span>
+          <span id="langLabel">EN</span>
+        </button>
+
+        <!-- Mobile Drawer Toggle -->
+        <button class="mobile-menu-btn" id="mobileMenuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle Navigation Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop & Menu -->
+  <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h3>Navigation Menu</h3>
+      <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="drawer-nav-list" id="drawerNavList">
+      <li><a href="#home" class="drawer-link active" data-view="home">Home Overview</a></li>
+      <li><a href="#user-portal" class="drawer-link" id="drawerUserPortalLink" data-view="user-portal" style="display:none;">📋 My Case Status</a></li>
+      <li><a href="#helplines" class="drawer-link" data-view="helplines">Helplines Directory</a></li>
+    </ul>
+    <div class="drawer-helpline-bar" aria-label="Helpline numbers">
+      <p class="drawer-helpline-heading">Helpline numbers (24×7)</p>
+      <ul class="drawer-helpline-list">
+        <li><a href="tel:112">Police / Emergency — <strong>112</strong></a></li>
+        <li><a href="tel:181">Women Helpline — <strong>181</strong></a></li>
+        <li><a href="tel:1098">Child Helpline — <strong>1098</strong></a></li>
+        <li><a href="tel:15100">Free Legal Aid — <strong>15100</strong></a></li>
+        <li><a href="tel:14416">Mental Health (Tele-MANAS) — <strong>14416</strong></a></li>
+      </ul>
+    </div>
+    <ul class="drawer-nav-list">
+      <li><a href="#agent" class="drawer-link" data-view="agent">Live AI Assistant</a></li>
+      <li><a href="#describe" class="drawer-link" data-view="describe">Describe Incident (User Info)</a></li>
+      <li><a href="#wellbeing" class="drawer-link" data-view="wellbeing">Victim Well-Being Monitor</a></li>
+      <li><a href="#rights" class="drawer-link" data-view="rights">Your Legal Rights</a></li>
+      <li><a href="#privacy" class="drawer-link" data-view="privacy">Privacy &amp; Safety</a></li>
+    </ul>
+    <div class="drawer-quick-exit">
+      <button class="btn btn-primary" style="width:100%;margin-bottom:8px;" id="drawerUserLoginBtn">👤 Citizen / User Case Login</button>
+      <button class="btn btn-purple" style="width:100%;margin-bottom:10px;" id="drawerGovtLoginBtn">🏛️ Official Government Login</button>
+      <button class="btn btn-urgent" style="width:100%;" onclick="quickExit()">Leave Site Instantly (Quick Exit)</button>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Tab Bar -->
+  <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobile Navigation">
+    <a href="#home" class="bottom-tab active" data-view="home">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+      <span>Home</span>
+    </a>
+    <a href="#user-portal" class="bottom-tab" id="mobileUserTab" data-view="user-portal" style="display:none;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      <span>My Case</span>
+    </a>
+    <a href="#helplines" class="bottom-tab" data-view="helplines">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <span>Helplines</span>
+    </a>
+    <a href="#agent" class="bottom-tab agent-tab" data-view="agent">
+      <span class="agent-pill-dot"></span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      <span>AI Agent</span>
+    </a>
+    <a href="#describe" class="bottom-tab" data-view="describe">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+      <span>Describe</span>
+    </a>
+    <a href="#govt-portal" class="bottom-tab" id="mobileGovtTab" data-view="govt-portal">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+      <span>Govt Portal</span>
+    </a>
+  </nav>
+
+  <!-- Quick Exit Floating Action Button -->
+  <button class="quick-exit-btn" id="quickExitBtn" aria-label="Leave this site immediately" title="Press Esc to exit immediately">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    <span>Quick Exit</span>
+    <kbd>Esc</kbd>
+  </button>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Welcome Role / Portal Selection Modal (On Entry) -->
+  <div class="govt-login-modal" id="roleSelectModal" role="dialog" aria-modal="true" aria-labelledby="roleModalTitle">
+    <div class="govt-login-card role-select-card">
+      <div class="govt-login-header" style="background: linear-gradient(135deg, var(--teal-deep) 0%, #174E47 100%);">
+        <h3 id="roleModalTitle">🛡️ Welcome to Sahaay Setu (सहाय सेतु)</h3>
+        <button class="drawer-close-btn" id="roleSelectCloseBtn" style="color:#fff;" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="govt-login-body">
+        <p style="font-size:0.92rem;color:var(--ink-soft);margin-bottom:18px;">
+          National SC/ST (Prevention of Atrocities) Act Legal &amp; Emergency Support Bridge. Select your access portal to continue:
+        </p>
+
+        <div class="role-cards-grid">
+          <!-- Card 1: User / Citizen Login -->
+          <div class="role-entry-card" id="roleCardUser">
+            <div class="role-entry-icon" style="background:#EBF8F2;color:#15803D;">👤</div>
+            <div class="role-entry-content">
+              <h4>Login as a User / Citizen</h4>
+              <p>Track your registered case file, view FIR copy, check statutory financial relief disbursement stages, and reach your assigned protection officer.</p>
+              <div class="role-entry-badge">For Victims, Families &amp; Complainants</div>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm role-entry-btn" id="roleSelectUserBtn">
+              Login as User (Case ID) &rarr;
+            </button>
+          </div>
+
+          <!-- Card 2: Government Official Login -->
+          <div class="role-entry-card" id="roleCardGovt">
+            <div class="role-entry-icon" style="background:#EDE9FE;color:#6D28D9;">🏛️</div>
+            <div class="role-entry-content">
+              <h4>Login as Government Employee</h4>
+              <p>Secure administrative portal for Case Workers, District Welfare Officers, Police SP Nodal, State Welfare, and MoSJE Policy Makers.</p>
+              <div class="role-entry-badge">4 Official RBAC Tiers</div>
+            </div>
+            <button type="button" class="btn btn-purple btn-sm role-entry-btn" id="roleSelectGovtBtn">
+              Login as Govt Employee &rarr;
+            </button>
+          </div>
+        </div>
+
+        <div class="role-select-footer">
+          <button type="button" class="btn btn-ghost btn-sm" id="roleSelectGuestBtn" style="width:100%;">
+            🌐 Continue as Public Visitor / Emergency Mode (Anonymous Access)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- User / Citizen Login Modal -->
+  <div class="govt-login-modal" id="userLoginModal" role="dialog" aria-modal="true" aria-labelledby="userModalTitle">
+    <div class="govt-login-card">
+      <div class="govt-login-header" style="background: linear-gradient(135deg, #092622 0%, #15803D 100%);">
+        <h3 id="userModalTitle">👤 Citizen &amp; Case Tracking Login</h3>
+        <button class="drawer-close-btn" id="userLoginCloseBtn" style="color:#fff;" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="govt-login-body">
+        <p style="font-size:0.86rem;color:var(--ink-soft);margin-bottom:14px;">
+          Enter your Case ID and registered phone number to check FIR status, compensation voucher disbursal, and assigned protection officer.
+          <br><em>(Project Demo Mode: Enter <strong>any Case ID and Phone number</strong> to access).</em>
+        </p>
+
+        <!-- 1-Click Quick Demo User Switchers -->
+        <div style="margin-bottom:16px;">
+          <span style="font-size:0.76rem;color:var(--ink-muted);font-weight:600;display:block;margin-bottom:6px;">1-Click Quick Demo Cases (Distinct Survivors):</span>
+          <div class="quick-demo-badges">
+            <button type="button" class="quick-demo-btn" onclick="quickUserLogin('POA-9042', '+91 9876543210')">POA-9042 (Sunita Devi • Varanasi)</button>
+            <button type="button" class="quick-demo-btn" onclick="quickUserLogin('POA-9038', '+91 9811223355')">POA-9038 (Rajesh Paswan • Patna)</button>
+            <button type="button" class="quick-demo-btn" onclick="quickUserLogin('POA-9031', '+91 9822334477')">POA-9031 (Vikram Meghwal • Bhiwani)</button>
+            <button type="button" class="quick-demo-btn" onclick="quickUserLogin('POA-9019', '+91 9833445599')">POA-9019 (Anita Kumari • Gwalior)</button>
+            <button type="button" class="quick-demo-btn" onclick="quickUserLogin('POA-9015', '+91 9844556611')">POA-9015 (Ramesh Valmiki • Jaipur)</button>
+            <button type="button" class="quick-demo-btn" onclick="quickUserLogin('POA-9008', '+91 9855667733')">POA-9008 (Manjula Rathore • Ahmedabad)</button>
+          </div>
+        </div>
+
+        <form id="userLoginForm">
+          <div class="login-field-row">
+            <label for="userCaseIdInput">Case ID / Token Number:</label>
+            <input type="text" id="userCaseIdInput" placeholder="e.g. POA-9042 or enter anything" value="POA-9042" required>
+          </div>
+
+          <div class="login-field-row">
+            <label for="userPhoneInput">Registered Phone Number:</label>
+            <input type="tel" id="userPhoneInput" placeholder="e.g. 9876543210 or enter anything" value="+91 9876543210" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:10px;">
+            Access My Case &amp; Relief Portal &rarr;
+          </button>
+        </form>
+
+        <div style="text-align:center;margin-top:14px;font-size:0.82rem;">
+          <span style="color:var(--ink-muted);">Are you a Government Official?</span>
+          <button type="button" class="link-btn" onclick="switchToGovtLogin()" style="background:none;border:none;color:var(--accent-purple);font-weight:700;cursor:pointer;text-decoration:underline;margin-left:4px;">
+            Login as Government Employee &rarr;
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Government Official Login Modal -->
+  <div class="govt-login-modal" id="govtLoginModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="govt-login-card">
+      <div class="govt-login-header">
+        <h3 id="modalTitle">🏛️ Official Government Portal Login</h3>
+        <button class="drawer-close-btn" id="govtLoginCloseBtn" style="color:#fff;" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="govt-login-body">
+        <p style="font-size:0.86rem;color:var(--ink-soft);margin-bottom:14px;">
+          Select your official administrative tier. <em>(Project Demo Mode: Enter <strong>any Officer ID and password</strong> to access).</em>
+        </p>
+
+        <!-- Tier Selector -->
+        <label style="font-weight:600;font-size:0.88rem;color:var(--ink);display:block;margin-bottom:6px;">Select Access Tier Level:</label>
+        <div class="tier-pills-selector" id="tierSelectorGrid">
+          <button type="button" class="tier-select-btn active" data-tier="caseworker">
+            Level 1: Case Worker<br><span style="font-size:0.72rem;font-weight:400;">Assigned Counselor / Protection Officer</span>
+          </button>
+          <button type="button" class="tier-select-btn" data-tier="district">
+            Level 2: District Level<br><span style="font-size:0.72rem;font-weight:400;">District Welfare Officer / SP Nodal</span>
+          </button>
+          <button type="button" class="tier-select-btn" data-tier="state">
+            Level 3: State Level<br><span style="font-size:0.72rem;font-weight:400;">State Welfare Dept (Anonymized)</span>
+          </button>
+          <button type="button" class="tier-select-btn" data-tier="national">
+            Level 4: National Level<br><span style="font-size:0.72rem;font-weight:400;">MoSJE / Policy Maker Analytics</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Scope Dropdown (District or State) -->
+        <div class="login-field-row" id="districtScopeRow" style="display:none;">
+          <label for="loginDistrictSelect">Select Assigned District:</label>
+          <select id="loginDistrictSelect" class="describe-textarea" style="min-height:auto;padding:10px;">
+            <option value="Varanasi">Varanasi District (Uttar Pradesh)</option>
+            <option value="Bhiwani">Bhiwani District (Haryana)</option>
+            <option value="Patna">Patna District (Bihar)</option>
+            <option value="Gwalior">Gwalior District (Madhya Pradesh)</option>
+          </select>
+        </div>
+
+        <form id="govtLoginForm">
+          <div class="login-field-row">
+            <label for="officerIdInput">Officer / Employee ID:</label>
+            <input type="text" id="officerIdInput" placeholder="Enter any ID (e.g. GOV-8942 or your name)" value="OFFICER-771" required>
+          </div>
+
+          <div class="login-field-row">
+            <label for="officerPassInput">Secure Password / PIN:</label>
+            <input type="password" id="officerPassInput" placeholder="Enter any password (e.g. demo123)" value="demo123" required>
+          </div>
+
+          <!-- Quick 1-Click Evaluation Shortcuts -->
+          <div style="margin-top:10px;">
+            <span style="font-size:0.76rem;color:var(--ink-muted);font-weight:600;">1-Click Quick Demo Switchers:</span>
+            <div class="quick-demo-badges">
+              <button type="button" class="quick-demo-btn" onclick="quickLoginTier('caseworker')">Case Worker</button>
+              <button type="button" class="quick-demo-btn" onclick="quickLoginTier('district')">District Welfare / SP</button>
+              <button type="button" class="quick-demo-btn" onclick="quickLoginTier('state')">State Dept (Masked)</button>
+              <button type="button" class="quick-demo-btn" onclick="quickLoginTier('national')">National MoSJE</button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-purple" style="width:100%;margin-top:10px;">
+            Access Secure Government Interface &rarr;
+          </button>
+        </form>
+
+        <div style="text-align:center;margin-top:14px;font-size:0.82rem;">
+          <span style="color:var(--ink-muted);">Are you a Citizen / Complainant?</span>
+          <button type="button" class="link-btn" onclick="switchToUserLogin()" style="background:none;border:none;color:var(--teal);font-weight:700;cursor:pointer;text-decoration:underline;margin-left:4px;">
+            Login as User / Citizen &rarr;
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main View Container -->
+  <main class="view-container" id="main-content">
+
+    <!-- ====================================================================
+         VIEW 1: HOME / OVERVIEW (Citizen Portal)
+         ==================================================================== -->
+    <div class="view active" id="view-home">
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-grid">
+            <div>
+              <span class="hero-tag">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span id="heroBadgeText">Citizen &amp; Official Legal Bridge</span>
+              </span>
+              <h1 id="heroHeadline">You are not alone. Safe, legal, and immediate help is here.</h1>
+              <p class="lede" id="heroLede">
+                Sahaay Setu connects survivors, families, and witnesses of caste violence to immediate medical, police, legal, and psychological protection under the SC/ST (Prevention of Atrocities) Act, 1989.
+              </p>
+              
+              <div class="hero-actions" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+                <a class="btn-live-agent-hero" href="#agent" data-view="agent" id="heroBtnAgent" aria-label="Talk with 24×7 Live AI Support Agent">
+                  <svg class="agent-chat-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    <line x1="8" y1="10" x2="8.01" y2="10" stroke-width="3"></line>
+                    <line x1="12" y1="10" x2="12.01" y2="10" stroke-width="3"></line>
+                    <line x1="16" y1="10" x2="16.01" y2="10" stroke-width="3"></line>
+                  </svg>
+                  <div class="live-beacon-wrap">
+                    <div class="hero-agent-title">
+                      <span>Talk with Live Support Agent</span>
+                      <span class="live-beacon-pill"><span class="live-beacon-dot"></span>24×7 LIVE</span>
+                    </div>
+                    <span class="hero-agent-subtitle">Multilingual AI Legal &amp; Psychological Guidance &rarr;</span>
+                  </div>
+                </a>
+                <a class="btn btn-ghost" href="#describe" data-view="describe" id="heroBtnDescribe">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                  Report Incident &amp; Draft FIR
+                </a>
+              </div>
+            </div>
+
+            <!-- Instant Emergency Dial Card -->
+            <div>
+              <div class="panic-card">
+                <h3>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                  Emergency Panic Contacts
+                </h3>
+                <p style="font-size:0.88rem;margin-top:6px;margin-bottom:12px;">If you are currently being threatened, attacked, or need an ambulance, tap below to call immediately:</p>
+                <div class="panic-grid">
+                  <a href="tel:112" class="panic-dial-btn" aria-label="Call 112 Police Emergency">
+                    <span class="p-num">112</span>
+                    <span class="p-label">Police / Ambulance</span>
+                  </a>
+                  <a href="tel:181" class="panic-dial-btn" aria-label="Call 181 Women Helpline">
+                    <span class="p-num">181</span>
+                    <span class="p-label">Women in Distress</span>
+                  </a>
+                  <a href="tel:15100" class="panic-dial-btn" aria-label="Call 15100 Free Legal Aid">
+                    <span class="p-num">15100</span>
+                    <span class="p-label">NALSA Free Legal Aid</span>
+                  </a>
+                  <a href="tel:1098" class="panic-dial-btn" aria-label="Call 1098 Child Helpline">
+                    <span class="p-num">1098</span>
+                    <span class="p-label">Child Helpline 24×7</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dual Interface Quick Selection Banner -->
+          <div class="portal-selector-banner" id="portalSelectorBanner">
+            <div class="portal-selector-intro">
+              <span class="badge badge-teal">Choose Portal Interface</span>
+              <h3 style="margin:6px 0 2px;">Enter Citizen or Official Administrative Portal</h3>
+              <p style="font-size:0.88rem;color:var(--ink-soft);margin:0;">Select your appropriate interface to track registered atrocities, relief vouchers, or official duties.</p>
+            </div>
+            <div class="portal-selector-buttons">
+              <button type="button" class="btn btn-primary" onclick="openUserLoginModal(event)">
+                <span>👤</span> Login as User / Citizen (Case ID)
+              </button>
+              <button type="button" class="btn btn-purple" onclick="openGovtLoginModal(event)">
+                <span>🏛️</span> Login as Govt Employee (4 Tiers)
+              </button>
+            </div>
+          </div>
+
+          <!-- Feature Navigation Cards -->
+          <div class="feature-tiles">
+            <a href="#agent" class="feature-tile tile-agent" data-view="agent">
+              <div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+              <span class="badge badge-success" style="align-self:flex-start;margin-bottom:8px;">Live Support</span>
+              <h3>Sahaay Mitra Agent</h3>
+              <p>Empathetic chat assistant with voice synthesis to guide survivors through FIR, medical exam, and protection.</p>
+              <span class="tile-arrow">Start conversation &rarr;</span>
+            </a>
+
+            <a href="#describe" class="feature-tile tile-describe" data-view="describe">
+              <div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
+              <span class="badge badge-gold" style="align-self:flex-start;margin-bottom:8px;">Citizen Form</span>
+              <h3>Report Incident &amp; Info</h3>
+              <p>Provide basic contact details, type/speak incident in your own words, and receive an instant FIR complaint draft.</p>
+              <span class="tile-arrow">Report incident &rarr;</span>
+            </a>
+
+            <a href="#wellbeing" class="feature-tile tile-wellbeing" data-view="wellbeing">
+              <div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
+              <span class="badge badge-urgent" style="align-self:flex-start;margin-bottom:8px;">Continuous Care</span>
+              <h3>Victim Well-Being</h3>
+              <p>Track recovery over 30 days, early mental crisis detection, and direct linkage to Tele-MANAS (14416).</p>
+              <span class="tile-arrow">Check well-being &rarr;</span>
+            </a>
+
+            <a href="#user-login" class="feature-tile tile-dashboard" onclick="openUserLoginModal(event)">
+              <div class="tile-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
+              <span class="badge badge-teal" style="align-self:flex-start;margin-bottom:8px;">Citizen Tracking</span>
+              <h3>User Case Login</h3>
+              <p>Track your relief disbursal stages, view registered Zero FIR copy, and contact assigned protection officer.</p>
+              <span class="tile-arrow">User login &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust Strip -->
+      <div class="trust-strip">
+        <div class="wrap">
+          <div class="trust-item">
+            <strong>Tiered Protection</strong>
+            Case Worker &amp; District officers access individual files; State &amp; National levels see strictly anonymized patterns.
+          </div>
+          <div class="trust-item">
+            <strong>Client-Side Security</strong>
+            Zero third-party tracking. Citizen incident data is encrypted and saved securely for authorized welfare review.
+          </div>
+          <div class="trust-item">
+            <strong>Statutory Relief</strong>
+            Coordinating Police (112), Free Legal Aid (15100), and District Magistrates under the SC/ST (POA) Rules, 2016.
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Steps to Justice Flow Section -->
+      <section class="home-guide-section">
+        <div class="wrap">
+          <div class="section-title-wrap text-center">
+            <span class="badge badge-teal">Statutory Process</span>
+            <h2>4 Immediate Steps to Legal Protection &amp; Relief</h2>
+            <p class="lede" style="margin:0 auto 32px;text-align:center;">Under the Scheduled Castes &amp; Scheduled Tribes (Prevention of Atrocities) Act, 1989 and 2016 Amendment Rules:</p>
+          </div>
+
+          <div class="justice-steps-grid">
+            <div class="justice-step-card">
+              <div class="step-num-pill">Step 1</div>
+              <h4>Immediate Zero FIR (Section 4)</h4>
+              <p>Police stations cannot refuse or delay your complaint. An officer who delays an atrocity FIR faces mandatory imprisonment.</p>
+              <span class="step-phone-tag">Police Emergency: 112</span>
+            </div>
+
+            <div class="justice-step-card">
+              <div class="step-num-pill">Step 2</div>
+              <h4>Free Medical Exam (Sec 357C)</h4>
+              <p>Hospital examination and Medico-Legal Report (MLC) is 100% free at all government hospitals for injuries or sexual assault.</p>
+              <span class="step-phone-tag">Women Helpline: 181</span>
+            </div>
+
+            <div class="justice-step-card">
+              <div class="step-num-pill">Step 3</div>
+              <h4>50% Relief Voucher on FIR</h4>
+              <p>The District Magistrate must disburse first 25% to 50% statutory relief directly to your bank account without waiting for trial.</p>
+              <span class="step-phone-tag">Relief: ₹85k to ₹8.25L</span>
+            </div>
+
+            <div class="justice-step-card">
+              <div class="step-num-pill">Step 4</div>
+              <h4>Sec 15A Armed Security &amp; Legal Aid</h4>
+              <p>Survivors and witnesses are entitled to armed police security and a free state-appointed advocate for court proceedings.</p>
+              <span class="step-phone-tag">NALSA Legal Aid: 15100</span>
+            </div>
+          </div>
+
+          <div class="home-cta-strip">
+            <div>
+              <h3>Have an ongoing case or need immediate official support?</h3>
+              <p>Login with your Case ID to monitor relief disbursement or enter your incident statement confidential.</p>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <button type="button" class="btn btn-primary" onclick="openUserLoginModal(event)">👤 Citizen Case Login</button>
+              <a href="#helplines" class="btn btn-ghost" data-view="helplines">📞 View Helplines Directory</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====================================================================
+         VIEW 2: HELPLINES DIRECTORY
+         ==================================================================== -->
+    <div class="view" id="view-helplines">
+      <section>
+        <div class="wrap">
+          <h2>Verified Helplines &amp; Official Statutory Portals</h2>
+          <p class="lede">All emergency hotlines are toll-free and 24×7. Direct official government portals are provided beside each contact for filing statutory complaints and tracking relief online.</p>
+
+          <!-- Official Government Statutory Portals Quick Bar -->
+          <div class="official-portals-banner">
+            <div class="portals-banner-header">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:1.35rem;">🏛️</span>
+                <div>
+                  <strong style="color:var(--teal-deep);font-size:1rem;">Official Government &amp; Commission Web Portals</strong>
+                  <p style="font-size:0.82rem;color:var(--ink-soft);margin:2px 0 0;">Visit official portals alongside phone hotlines to file online petitions, track FIRs, or submit statutory grievances.</p>
+                </div>
+              </div>
+            </div>
+            <div class="portal-links-chips">
+              <a href="https://ncsc.nic.in" target="_blank" rel="noopener noreferrer" class="portal-chip">
+                <span>🏛️ NCSC Commission (ncsc.nic.in) ↗</span>
+              </a>
+              <a href="https://ncst.nic.in" target="_blank" rel="noopener noreferrer" class="portal-chip">
+                <span>🏛️ NCST Commission (ncst.nic.in) ↗</span>
+              </a>
+              <a href="https://nalsa.gov.in" target="_blank" rel="noopener noreferrer" class="portal-chip">
+                <span>⚖️ NALSA Legal Services (nalsa.gov.in) ↗</span>
+              </a>
+              <a href="https://112.gov.in" target="_blank" rel="noopener noreferrer" class="portal-chip">
+                <span>🚨 Emergency Response 112 (112.gov.in) ↗</span>
+              </a>
+              <a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer" class="portal-chip">
+                <span>🛡️ Cyber Crime Portal (cybercrime.gov.in) ↗</span>
+              </a>
+              <a href="https://socialjustice.gov.in" target="_blank" rel="noopener noreferrer" class="portal-chip">
+                <span>🇮🇳 Ministry of Social Justice (socialjustice.gov.in) ↗</span>
+              </a>
+              <a href="https://telemanas.mohfw.gov.in" target="_blank" rel="noopener noreferrer" class="portal-chip">
+                <span>🧠 Tele-MANAS Portal (telemanas.mohfw.gov.in) ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="helpline-controls">
+            <div class="search-box-wrapper">
+              <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="search" class="search-input" id="helplineSearch" placeholder="Search by name, number, or keyword (e.g. legal, women, mental health)..." aria-label="Search Helplines">
+            </div>
+
+            <div class="category-filter-pills" id="helplineFilters">
+              <button class="filter-pill active" data-category="all">All Services</button>
+              <button class="filter-pill" data-category="emergency">Emergency / Police</button>
+              <button class="filter-pill" data-category="women">Women &amp; Children</button>
+              <button class="filter-pill" data-category="legal">Legal Aid</button>
+              <button class="filter-pill" data-category="mental">Mental Health</button>
+              <button class="filter-pill" data-category="scst">SC/ST Commissions</button>
+            </div>
+          </div>
+
+          <div class="helpline-grid" id="helplineGrid"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====================================================================
+         VIEW 3: LIVE AI AGENT — SAHAAY MITRA
+         ==================================================================== -->
+    <div class="view" id="view-agent">
+      <section style="padding-top:20px;">
+        <div class="wrap">
+          <div class="agent-layout">
+            <div class="agent-header">
+              <div class="agent-identity">
+                <div class="agent-avatar">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F1E0C2" stroke-width="2"><path d="M12 2a5 5 0 0 1 5 5v3a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>
+                  <span class="agent-online-beacon" title="Agent Online"></span>
+                </div>
+                <div class="agent-titles">
+                  <h3>Sahaay Mitra <span class="badge badge-success" style="font-size:0.65rem;padding:2px 6px;">Active</span></h3>
+                  <p>Multilingual Legal &amp; Survivor Assistant (English / हिंदी)</p>
+                </div>
+              </div>
+
+              <div class="agent-controls">
+                <!-- Language Toggle for Live Agent -->
+                <button class="agent-ctrl-btn agent-lang-btn" id="agentLangToggle" title="Switch between English and Hindi">
+                  <span>🌐</span>
+                  <span id="agentLangLabel">English</span>
+                </button>
+                <button class="agent-ctrl-btn" id="ttsToggleBtn" title="Toggle voice narration (Text to speech)">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                  <span id="ttsLabel">Voice: Off</span>
+                </button>
+                <button class="agent-ctrl-btn" id="clearChatBtn" title="Clear chat history">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                  Clear
+                </button>
+              </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages" role="log" aria-live="polite">
+              <div class="chat-bubble bot">
+                <h4>Namaste &amp; Welcome 🙏 / नमस्ते और स्वागत है 🙏</h4>
+                <p>I am <strong>Sahaay Mitra</strong> (सहाय मित्र), your confidential survivor guide. I can explain your statutory rights, assist with police FIR procedures, and guide you on compensation under the SC/ST (POA) Act.</p>
+                <p>मैं आपकी गोपनीय सहायिका हूँ। आप मुझसे हिंदी या English में बात कर सकते हैं।</p>
+                <p><strong>First, are you in a safe place right now?</strong> / <strong>क्या आप अभी सुरक्षित हैं?</strong> Tap a quick reply or type in English or Hindi.</p>
+                <span class="bubble-timestamp">Just now</span>
+              </div>
+
+              <div class="typing-indicator" id="typingIndicator">
+                <span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>
+              </div>
+            </div>
+
+            <div class="chat-suggestions" id="chatSuggestions">
+              <button class="chat-suggestion-chip" data-msg="I am in immediate danger, what should I do?">🚨 In Immediate Danger / तत्काल ख़तरे में</button>
+              <button class="chat-suggestion-chip" data-msg="Police refused to file an FIR. What are my rights?">⚖️ Police Refused FIR / पुलिस ने FIR नहीं लिखी</button>
+              <button class="chat-suggestion-chip" data-msg="What compensation can I get under the SC/ST Act?">💰 Compensation / मुआवज़ा</button>
+              <button class="chat-suggestion-chip" data-msg="Accused is threatening us to withdraw the complaint.">🛡️ Witness Protection / गवाह सुरक्षा</button>
+              <button class="chat-suggestion-chip" data-msg="मुझे मुफ्त चिकित्सा जांच और वकील चाहिए।">🏥 Medical &amp; Legal Aid / चिकित्सा और कानूनी सहायता</button>
+            </div>
+
+            <form class="chat-input-bar" id="chatForm">
+              <button type="button" class="chat-btn-icon" id="micBtn" title="Speak message (Voice to text)" aria-label="Use microphone for speech input">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>
+              </button>
+              <input type="text" class="chat-input" id="chatInput" placeholder="Type here (English or हिंदी) / यहाँ लिखें..." autocomplete="off" aria-label="Chat input">
+              <button type="submit" class="chat-btn-icon send-btn" id="sendBtn" title="Send message" aria-label="Send message">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </form>
+
+            <div class="chat-disclaimer">
+              🔒 100% Confidential &amp; Explainable AI. Messages are processed in your browser memory and never stored on remote servers.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====================================================================
+         VIEW 4: DESCRIBE INCIDENT & CITIZEN BASIC INFO COLLECTION
+         ==================================================================== -->
+    <div class="view" id="view-describe">
+      <section>
+        <div class="wrap">
+          <h2>Describe Incident in Your Own Words</h2>
+          <p class="lede">
+            Provide basic contact information so government welfare officers and assigned counselors can reach you with medical, financial, and legal protection under the SC/ST (POA) Act.
+          </p>
+
+          <div class="describe-card">
+            <!-- Basic User Information Section -->
+            <div class="basic-info-box">
+              <h3 style="color:var(--teal-deep);font-size:1.1rem;display:flex;align-items:center;gap:8px;">
+                <span>👤</span> Basic Contact &amp; Location Information (Confidential)
+              </h3>
+              <p style="font-size:0.84rem;color:var(--ink-soft);margin-bottom:12px;">
+                This information allows the assigned District Welfare Officer and local Protection Officer to process your compensation voucher and dispatch security.
+              </p>
+
+              <div class="basic-info-grid">
+                <div class="form-group-field">
+                  <label for="userInfoName">Full Name of Complainant / Survivor:</label>
+                  <input type="text" id="userInfoName" placeholder="e.g. Ramesh Kumar / Sunita Devi" value="Sunita Devi">
+                </div>
+
+                <div class="form-group-field">
+                  <label for="userInfoPhone">Primary Contact Phone Number:</label>
+                  <input type="tel" id="userInfoPhone" placeholder="e.g. 9876543210" value="9876543210">
+                </div>
+
+                <div class="form-group-field">
+                  <label for="userInfoAltPhone">Alternate / Trusted Family Phone:</label>
+                  <input type="tel" id="userInfoAltPhone" placeholder="e.g. 9811223344" value="9811223344">
+                </div>
+
+                <div class="form-group-field">
+                  <label for="userInfoCaste">Community / Caste Category:</label>
+                  <select id="userInfoCaste">
+                    <option value="Scheduled Caste (SC)">Scheduled Caste (SC)</option>
+                    <option value="Scheduled Tribe (ST)">Scheduled Tribe (ST)</option>
+                    <option value="Family / Witness of SC/ST Survivor">Family / Witness of SC/ST Survivor</option>
+                  </select>
+                </div>
+
+                <div class="form-group-field">
+                  <label for="userInfoState">State:</label>
+                  <select id="userInfoState">
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                  </select>
+                </div>
+
+                <div class="form-group-field">
+                  <label for="userInfoDistrict">District:</label>
+                  <select id="userInfoDistrict">
+                    <option value="Varanasi">Varanasi</option>
+                    <option value="Bhiwani">Bhiwani</option>
+                    <option value="Patna">Patna</option>
+                    <option value="Gwalior">Gwalior</option>
+                    <option value="Rohtak">Rohtak</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Emotion AI HUD -->
+            <div class="emotion-ai-hud" id="emotionAiHud">
+              <div class="hud-top-row">
+                <div class="hud-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 14a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm1-5a1 1 0 0 1-2 0V7a1 1 0 0 1 2 0z"></path></svg>
+                  <span>Voice Stress &amp; Emotion AI Analysis</span>
+                </div>
+                <div class="audio-waves-container" id="audioWaves">
+                  <div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div>
+                </div>
+              </div>
+
+              <div class="hud-metrics-grid">
+                <div class="hud-metric-card">
+                  <div class="hud-metric-label">Vocal Stress Level</div>
+                  <div class="hud-metric-val" id="hudStressVal"><span style="color:#34D399;">Normal</span></div>
+                </div>
+                <div class="hud-metric-card">
+                  <div class="hud-metric-label">Detected Emotion</div>
+                  <div class="hud-metric-val" id="hudEmotionVal"><span>Guarded</span></div>
+                </div>
+                <div class="hud-metric-card">
+                  <div class="hud-metric-label">Speaking Cadence</div>
+                  <div class="hud-metric-val" id="hudCadenceVal"><span>0 WPM</span></div>
+                </div>
+                <div class="hud-metric-card">
+                  <div class="hud-metric-label">Trauma Sentiment Index</div>
+                  <div class="hud-metric-val" id="hudTraumaVal"><span>18 / 100</span></div>
+                </div>
+              </div>
+            </div>
+
+            <label for="incidentNarrative" style="font-weight:700;font-size:1.05rem;color:var(--teal-deep);display:block;">
+              What happened? (Type or speak freely in your own words)
+            </label>
+            
+            <div class="describe-prompt-box">
+              <textarea id="incidentNarrative" class="describe-textarea" placeholder="Describe the incident: e.g., 'Yesterday afternoon, three dominant caste men stopped my brother, hurled abusive casteist slurs against our community in public view, and physically attacked him with sticks. When we went to the local station, the officer delayed our FIR...'"></textarea>
+            </div>
+
+            <div class="describe-input-tools">
+              <div style="display:flex;gap:8px;align-items:center;">
+                <button type="button" class="voice-input-btn" id="narrativeMicBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>
+                  <span id="narrativeMicLabel">Voice Dictation (Speak)</span>
+                </button>
+                <span id="speechStatusText" style="font-size:0.8rem;color:var(--ink-muted);"></span>
+              </div>
+
+              <div style="display:flex;gap:8px;">
+                <button type="button" class="btn btn-sm btn-ghost" id="clearNarrativeBtn">Clear</button>
+                <button type="button" class="btn btn-primary" id="analyzeNarrativeBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                  Submit &amp; Save Incident for Official Review
+                </button>
+              </div>
+            </div>
+
+            <!-- Priority Use Cases -->
+            <div class="sample-prompts">
+              <span style="font-size:0.8rem;font-weight:600;color:var(--ink-soft);align-self:center;">Priority use cases:</span>
+              <button type="button" class="sample-prompt-btn" data-insert="Survivors of sexual assault and gang rape; need emergency MLC exam, One-Stop shelter, and ₹8.25L statutory relief.">1. Rape / Gang Rape Case</button>
+              <button type="button" class="sample-prompt-btn" data-insert="Arson and murder of family member; our home was burned down and we need housing reconstruction relief under POA rules.">2. Murder, Grievous Hurt &amp; Arson</button>
+              <button type="button" class="sample-prompt-btn" data-insert="Witnesses are receiving death threats from the accused demanding withdrawal of complaint; need Section 15A protection escort.">3. Witness Intimidation &amp; Threats</button>
+              <button type="button" class="sample-prompt-btn" data-insert="Our entire Dalit family is facing caste-based social boycott, public abuse, and denial of water/path access.">4. Caste-Based Violence &amp; Boycott</button>
+            </div>
+          </div>
+
+          <!-- Dynamic Analysis & Solution Container -->
+          <div class="incident-analysis-result" id="incidentAnalysisResult">
+            <div class="analysis-header-banner">
+              <div>
+                <h3>Incident Assessment &amp; Predictive Risk Model</h3>
+                <p style="color:#C7DCD4;font-size:0.85rem;margin:0;">Submitted &amp; Linked to Government Welfare Queue</p>
+              </div>
+              <div id="analysisUrgencyBadge">
+                <span class="badge badge-urgent">Tier 1 — Critical Priority</span>
+              </div>
+            </div>
+
+            <div class="analysis-body">
+              <div class="analysis-section-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path></svg>
+                Predictive Risk Model Breakdown:
+              </div>
+              <div class="risk-matrix-panel">
+                <div class="risk-metric-box">
+                  <div class="risk-metric-val" id="rmPhysicalVal">26 / 30</div>
+                  <div class="risk-metric-label">Physical Safety Threat</div>
+                </div>
+                <div class="risk-metric-box">
+                  <div class="risk-metric-val" id="rmRetaliationVal">22 / 25</div>
+                  <div class="risk-metric-label">Retaliation / Witness Risk</div>
+                </div>
+                <div class="risk-metric-box">
+                  <div class="risk-metric-val" id="rmMedicalVal">21 / 25</div>
+                  <div class="risk-metric-label">Medical / Forensic Urgency</div>
+                </div>
+                <div class="risk-metric-box">
+                  <div class="risk-metric-val" id="rmMentalVal">17 / 20</div>
+                  <div class="risk-metric-label">Trauma Fragility Index</div>
+                </div>
+              </div>
+
+              <!-- Explainable AI (XAI) Panel -->
+              <div class="analysis-section-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                Explainable AI (XAI) — Transparent Reasoning:
+              </div>
+              <div class="xai-card" id="xaiCard">
+                <div class="xai-header">
+                  <span class="xai-badge">XAI Model Confidence: 96.4%</span>
+                  <span style="font-size:0.78rem;color:var(--teal);font-weight:700;">Statutory Legal Citation Engine</span>
+                </div>
+                <div class="xai-factors-breakdown" id="xaiFactorsBreakdown"></div>
+                <div id="xaiLegalReasoning" style="background:#F2F7F4;padding:12px;border-radius:6px;font-size:0.86rem;color:var(--teal-deep);margin-top:10px;"></div>
+              </div>
+
+              <div class="analysis-section-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                Key Factors Identified:
+              </div>
+              <div class="factor-tags-grid" id="factorTagsGrid"></div>
+
+              <div class="analysis-section-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                Immediate Action Plan:
+              </div>
+              <div id="actionPlanSteps" style="margin-bottom:20px;"></div>
+
+              <div class="analysis-section-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                Generated Confidential FIR / Complaint Draft:
+              </div>
+              <div class="fir-draft-box" id="firDraftBox" tabindex="0" role="region" aria-label="Draft FIR Text"></div>
+
+              <div class="fir-controls-row">
+                <button type="button" class="btn btn-primary btn-sm" id="copyFirBtn">Copy Complaint Text</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="printFirBtn">Print / Save as PDF</button>
+                <a href="tel:15100" class="btn btn-ghost btn-sm" style="margin-left:auto;">📞 Call Free Legal Aid (15100)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====================================================================
+         VIEW 5: CONTINUOUS VICTIM WELL-BEING & CRISIS MONITOR
+         ==================================================================== -->
+    <div class="view" id="view-wellbeing">
+      <section>
+        <div class="wrap">
+          <h2>Continuous Victim Well-Being &amp; Crisis Early Detection</h2>
+          <p class="lede">
+            Recovery after caste-based violence or trauma takes time. This confidential tool tracks emotional recovery and alerts Tele-MANAS (14416).
+          </p>
+
+          <div class="wellbeing-card">
+            <h3 style="margin-bottom:12px;">Select Current Recovery Stage</h3>
+            <div class="pulse-selector-row" id="pulseSelectorRow">
+              <button class="pulse-stage-btn active" data-stage="day1">Day 1 (Immediate Crisis)</button>
+              <button class="pulse-stage-btn" data-stage="day7">Day 7 (First Week Check-In)</button>
+              <button class="pulse-stage-btn" data-stage="day14">Day 14 (Fortnightly Follow-up)</button>
+              <button class="pulse-stage-btn" data-stage="day30">Day 30 (Long-Term Rehabilitation)</button>
+            </div>
+
+            <form id="wellbeingForm">
+              <div class="wellbeing-question">
+                <h4>1. How safe do you and your family feel right now?</h4>
+                <div class="likert-options" data-q="safety">
+                  <button type="button" class="likert-btn" data-score="1">Very Safe</button>
+                  <button type="button" class="likert-btn" data-score="2">Somewhat Safe</button>
+                  <button type="button" class="likert-btn" data-score="3">Unsafe / Watching Doors</button>
+                  <button type="button" class="likert-btn" data-score="4">Under Active Threat</button>
+                </div>
+              </div>
+
+              <div class="wellbeing-question">
+                <h4>2. Are you experiencing severe panic attacks, flashbacks, or difficulty sleeping?</h4>
+                <div class="likert-options" data-q="panic">
+                  <button type="button" class="likert-btn" data-score="1">None / Sleeping Well</button>
+                  <button type="button" class="likert-btn" data-score="2">Mild Unease</button>
+                  <button type="button" class="likert-btn" data-score="3">Frequent Nightmares</button>
+                  <button type="button" class="likert-btn" data-score="4">Severe Panic &amp; Chest Tightness</button>
+                </div>
+              </div>
+
+              <div class="wellbeing-question">
+                <h4>3. Are you receiving medical care and food/shelter without hindrance?</h4>
+                <div class="likert-options" data-q="support">
+                  <button type="button" class="likert-btn" data-score="1">Yes, Fully Supported</button>
+                  <button type="button" class="likert-btn" data-score="2">Partial Support</button>
+                  <button type="button" class="likert-btn" data-score="3">Facing Boycott / Denied Access</button>
+                  <button type="button" class="likert-btn" data-score="4">Completely Isolated / No Food</button>
+                </div>
+              </div>
+
+              <div class="wellbeing-question">
+                <h4>4. Do you feel overwhelming helplessness or thoughts of ending your life?</h4>
+                <div class="likert-options" data-q="crisis">
+                  <button type="button" class="likert-btn" data-score="1">No, Holding on</button>
+                  <button type="button" class="likert-btn" data-score="2">Occasionally Sad</button>
+                  <button type="button" class="likert-btn" data-score="3">Deep Despair</button>
+                  <button type="button" class="likert-btn" data-score="4">Yes, Need Urgent Help</button>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top:10px;">Check My Well-Being Score &amp; Support Plan</button>
+            </form>
+
+            <div class="crisis-alert-banner" id="crisisAlertBanner">
+              <h3 style="color:var(--urgent);display:flex;align-items:center;gap:8px;">
+                <span>⚠️</span> Early Crisis Detected — Immediate Support Ready
+              </h3>
+              <p style="margin:8px 0 14px;color:var(--ink);">
+                You indicated severe emotional distress or despair. Trained mental health counsellors at Tele-MANAS are available right now to speak with you for free.
+              </p>
+              <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                <a href="tel:14416" class="btn btn-urgent">📞 Call Tele-MANAS (14416) Now</a>
+                <a href="tel:181" class="btn btn-ghost">👩 Women Helpline (181)</a>
+              </div>
+            </div>
+
+            <div id="wellbeingResultBox" style="margin-top:20px;display:none;"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====================================================================
+         VIEW: CITIZEN CASE PORTAL (USER LOGIN DASHBOARD)
+         ==================================================================== -->
+    <div class="view" id="view-user-portal">
+      <section>
+        <div class="wrap">
+          <!-- User Session Header Banner -->
+          <div class="user-banner-bar">
+            <div class="user-banner-meta">
+              <div class="user-banner-avatar" id="userPortalAvatar">👤</div>
+              <div>
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                  <h2 style="color:#fff;margin:0;font-size:1.35rem;" id="userPortalNameDisplay">Sunita Devi</h2>
+                  <span class="user-case-badge" id="userPortalCaseIdBadge">Case #POA-9042</span>
+                  <span class="badge badge-success" id="userPortalProtectionBadge">🛡️ Sec 15A Escort Active</span>
+                </div>
+                <p style="color:#C7DCD4;font-size:0.86rem;margin:4px 0 0;" id="userPortalScopeDisplay">
+                  District: Varanasi (Uttar Pradesh) • Registered Phone: +91 9876543210
+                </p>
+              </div>
+            </div>
+
+            <div class="user-banner-actions">
+              <button class="btn btn-ghost btn-sm" style="color:#fff;border-color:rgba(255,255,255,0.4);" onclick="printUserCaseSummary()">
+                🖨️ Print Summary
+              </button>
+              <button class="btn btn-urgent btn-sm" onclick="logoutUser()">
+                🚪 Logout
+              </button>
+            </div>
+          </div>
+
+          <!-- User Portal 4 Key Cards Grid -->
+          <div class="user-portal-grid">
+            <!-- Card 1: Statutory Financial Relief Tracker -->
+            <div class="card user-card-relief">
+              <div class="card-header-row">
+                <div>
+                  <span class="badge badge-gold">Statutory Compensation</span>
+                  <h3 style="margin-top:6px;" id="userReliefTitle">₹8,25,000 Total Entitlement</h3>
+                </div>
+                <div class="relief-status-tag" id="userReliefStatusTag">Stage 1 Disbursed</div>
+              </div>
+              <p style="font-size:0.86rem;color:var(--ink-soft);margin-bottom:16px;">
+                Guaranteed by SC/ST (Prevention of Atrocities) Rules, 2016. Direct Bank Transfer (DBT) monitored by District Magistrate.
+              </p>
+
+              <!-- Stepper Progress Bar -->
+              <div class="relief-stepper" id="userReliefStepper">
+                <div class="relief-step completed">
+                  <div class="step-circle">✓</div>
+                  <div class="step-label">
+                    <strong>Stage 1 (50%)</strong>
+                    <span>₹4,12,500 Disbursed (on FIR &amp; MLC)</span>
+                  </div>
+                </div>
+                <div class="relief-step active">
+                  <div class="step-circle">2</div>
+                  <div class="step-label">
+                    <strong>Stage 2 (25%)</strong>
+                    <span>₹2,06,250 on Charge Sheet (Police IO)</span>
+                  </div>
+                </div>
+                <div class="relief-step">
+                  <div class="step-circle">3</div>
+                  <div class="step-label">
+                    <strong>Stage 3 (25%)</strong>
+                    <span>₹2,06,250 on Special Court Verdict</span>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action-bar">
+                <span style="font-size:0.8rem;color:var(--ink-muted);" id="userReliefVoucherNote">DBT Voucher #UP-VAR-2026-441 Approved by DM</span>
+                <a href="#rights" class="btn btn-ghost btn-sm" data-view="rights">View Rules Table &rarr;</a>
+              </div>
+            </div>
+
+            <!-- Card 2: Police FIR & Investigation Status -->
+            <div class="card user-card-fir">
+              <div class="card-header-row">
+                <div>
+                  <span class="badge badge-teal">Police &amp; Judicial Action</span>
+                  <h3 style="margin-top:6px;" id="userFirTitle">Zero FIR Registered</h3>
+                </div>
+                <span class="badge badge-purple" id="userIoBadge">IO: DSP Circle Officer</span>
+              </div>
+              <p style="font-size:0.86rem;color:var(--ink-soft);margin-bottom:14px;" id="userFirSummary">
+                Registered under Section 3(2)(v), Section 4 SC/ST (POA) Act. Medico-legal report (MLC) secured at District Hospital.
+              </p>
+
+              <div class="user-status-checklist">
+                <div class="check-item verified">
+                  <span class="check-icon">✓</span>
+                  <span>FIR registered without delay (Section 4 mandate honored)</span>
+                </div>
+                <div class="check-item verified">
+                  <span class="check-icon">✓</span>
+                  <span>Free Medico-Legal Examination (MLC) at District Hospital</span>
+                </div>
+                <div class="check-item pending">
+                  <span class="check-icon">⏳</span>
+                  <span>Police Investigation &amp; Charge sheet (60-day statutory limit)</span>
+                </div>
+                <div class="check-item active-guard">
+                  <span class="check-icon">🛡️</span>
+                  <span>Section 15A Armed Police Escort active at residence</span>
+                </div>
+              </div>
+
+              <div class="card-action-bar">
+                <button type="button" class="btn btn-primary btn-sm" onclick="viewMyComplaintDraft()">
+                  📄 View FIR Complaint Draft
+                </button>
+                <a href="tel:112" class="btn btn-urgent btn-sm">🚨 Emergency: 112</a>
+              </div>
+            </div>
+
+            <!-- Card 3: Assigned Protection Officer & Free Advocate -->
+            <div class="card user-card-contacts">
+              <div class="card-header-row">
+                <div>
+                  <span class="badge badge-success">Assigned Support Personnel</span>
+                  <h3 style="margin-top:6px;">Your Protection &amp; Legal Team</h3>
+                </div>
+              </div>
+              <p style="font-size:0.86rem;color:var(--ink-soft);margin-bottom:14px;">
+                You have the right to free state-funded legal representation and psychological counseling.
+              </p>
+
+              <div class="assigned-person-card">
+                <div class="person-avatar">👩‍⚕️</div>
+                <div class="person-info">
+                  <strong id="userCounselorName">Dr. Priya Sharma</strong>
+                  <span id="userCounselorTitle">Assigned Protection Officer / Sakhi One-Stop Centre</span>
+                  <span style="font-size:0.75rem;color:var(--ink-muted);" id="userCounselorDistrict">Varanasi District Hospital Liaison</span>
+                </div>
+                <a href="tel:181" class="btn btn-primary btn-sm" id="userCounselorCallBtn">📞 Call</a>
+              </div>
+
+              <div class="assigned-person-card" style="margin-top:10px;">
+                <div class="person-avatar">⚖️</div>
+                <div class="person-info">
+                  <strong>Adv. Rajesh Gautam (DLSA Panel)</strong>
+                  <span>Free Special Court Legal Aid Advocate</span>
+                  <span style="font-size:0.75rem;color:var(--ink-muted);">National Legal Services Authority (NALSA)</span>
+                </div>
+                <a href="tel:15100" class="btn btn-ghost btn-sm">📞 15100</a>
+              </div>
+
+              <div class="card-action-bar">
+                <a href="#agent" class="btn btn-ghost btn-sm" data-view="agent">💬 Chat with Sahaay Mitra</a>
+              </div>
+            </div>
+
+            <!-- Card 4: Continuous Recovery & Emergency Quick Action -->
+            <div class="card user-card-wellbeing">
+              <div class="card-header-row">
+                <div>
+                  <span class="badge badge-urgent">Care &amp; Mental Recovery</span>
+                  <h3 style="margin-top:6px;">Recovery &amp; Well-Being Monitor</h3>
+                </div>
+              </div>
+              <p style="font-size:0.86rem;color:var(--ink-soft);margin-bottom:14px;">
+                Caste atrocities cause deep trauma. Confidential mental health counseling is free and available 24×7.
+              </p>
+
+              <div class="recovery-pulse-box">
+                <div style="display:flex;justify-content:space-between;align-items:center;">
+                  <strong style="font-size:0.9rem;color:var(--teal-deep);">Current Recovery Stage:</strong>
+                  <span class="badge badge-teal">Day 7 Check-in</span>
+                </div>
+                <p style="font-size:0.84rem;color:var(--ink-soft);margin:6px 0 10px;">
+                  Distress score tracked with Tele-MANAS protocol. Regular check-ins protect against retaliation panic.
+                </p>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                  <a href="#wellbeing" class="btn btn-primary btn-sm" data-view="wellbeing">
+                    ❤️ Take Recovery Check-In
+                  </a>
+                  <a href="tel:14416" class="btn btn-ghost btn-sm">
+                    🧠 Call Tele-MANAS (14416)
+                  </a>
+                </div>
+              </div>
+
+              <div class="card-action-bar" style="margin-top:16px;">
+                <a href="#describe" class="btn btn-ghost btn-sm" data-view="describe">
+                  📝 Add Details to Case Statement
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====================================================================
+         VIEW 6: GOVERNMENT OFFICIAL PORTAL (4-TIER RBAC)
+         ==================================================================== -->
+    <div class="view" id="view-govt-portal">
+      <section>
+        <div class="wrap">
+          <!-- Officer Session Header Banner -->
+          <div class="govt-banner-bar">
+            <div class="govt-officer-meta">
+              <div class="govt-officer-avatar" id="govtOfficerAvatar">👮</div>
+              <div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <h2 style="color:#fff;margin:0;font-size:1.35rem;" id="govtOfficerNameDisplay">Officer Session Active</h2>
+                  <span class="govt-tier-badge" id="govtTierBadge">Level 2: District</span>
+                </div>
+                <p style="color:#C7DCD4;font-size:0.86rem;margin:2px 0 0;" id="govtOfficerScopeDisplay">
+                  District: Varanasi • Jurisdiction: All Cases in District
+                </p>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:10px;">
+              <button class="btn btn-urgent btn-sm" onclick="logoutGovtOfficer()">
+                🚪 Logout to Citizen View
+              </button>
+            </div>
+          </div>
+
+          <!-- ================================================================
+               TIER 1: CASE WORKER / COUNSELOR VIEW
+               ================================================================ -->
+          <div id="govtTier1Container" style="display:none;">
+            <div class="card" style="margin-bottom:24px;border-left:4px solid var(--teal);">
+              <h3>Case Worker / Counselor Assigned Victims Dashboard</h3>
+              <p style="font-size:0.88rem;color:var(--ink-soft);">
+                Full case-level details for your assigned survivors only. Track distress trend graphs, alert logs, and maintain confidential progress notes.
+              </p>
+            </div>
+
+            <div class="caseworker-panel-grid">
+              <!-- Assigned Victims List with Full PII -->
+              <div>
+                <h3 style="margin-bottom:14px;">Assigned Survivors Queue (Full PII Access)</h3>
+                <div id="caseworkerVictimsList">
+                  <!-- Injected via app.js -->
+                </div>
+              </div>
+
+              <!-- Case Detail & Distress Trend Graph -->
+              <div>
+                <div class="card" id="caseworkerDetailCard">
+                  <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+                    <div>
+                      <h3 id="cwDetailName">Sunita Devi</h3>
+                      <p style="font-size:0.85rem;color:var(--ink-soft);margin:0;" id="cwDetailMeta">
+                        Contact: +91 9876543210 • Community: Scheduled Caste (SC)
+                      </p>
+                    </div>
+                    <span class="badge badge-urgent" id="cwDetailBadge">Tier 1 Critical</span>
+                  </div>
+
+                  <!-- Distress Trend Graph -->
+                  <div class="distress-trend-graph">
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                      <strong style="font-size:0.86rem;color:var(--teal-deep);">Distress &amp; Trauma Trend Graph:</strong>
+                      <span style="font-size:0.75rem;color:var(--ink-muted);">Acoustic Stress &amp; Pulse Score</span>
+                    </div>
+                    <div class="trend-bars-row">
+                      <div class="trend-bar-col">
+                        <div class="trend-bar-fill" style="height:92%;background:#EF4444;" title="Day 1: 92% (Severe Trauma)"></div>
+                        <span class="trend-bar-day">Day 1</span>
+                      </div>
+                      <div class="trend-bar-col">
+                        <div class="trend-bar-fill" style="height:76%;background:#F87171;" title="Day 7: 76% (High Anxiety)"></div>
+                        <span class="trend-bar-day">Day 7</span>
+                      </div>
+                      <div class="trend-bar-col">
+                        <div class="trend-bar-fill" style="height:58%;background:#FBBF24;" title="Day 14: 58% (Moderate)"></div>
+                        <span class="trend-bar-day">Day 14</span>
+                      </div>
+                      <div class="trend-bar-col">
+                        <div class="trend-bar-fill" style="height:36%;background:#34D399;" title="Day 30: 36% (Recovering)"></div>
+                        <span class="trend-bar-day">Day 30</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Counselor Progress Notes -->
+                  <h4 style="font-size:0.95rem;margin:14px 0 8px;">Counselor Action &amp; Session Notes:</h4>
+                  <div class="counselor-notes-feed" id="cwNotesFeed">
+                    <div class="counselor-note-item">
+                      <strong>Session 1 (Yesterday):</strong> Completed emergency psychological first aid. Connected survivor with Sakhi One-Stop Centre.
+                    </div>
+                    <div class="counselor-note-item">
+                      <strong>Session 2 (Today):</strong> Medico-legal report collected from District Hospital. Accused associates issued threats; requested police escort.
+                    </div>
+                  </div>
+
+                  <form id="cwAddNoteForm" style="margin-top:12px;display:flex;gap:8px;">
+                    <input type="text" id="cwNoteInput" class="chat-input" placeholder="Add confidential counseling note..." required>
+                    <button type="submit" class="btn btn-primary btn-sm">Add Note</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+               TIER 2: DISTRICT LEVEL (SP & Welfare Officer)
+               ================================================================ -->
+          <div id="govtTier2Container" style="display:none;">
+            <div class="card" style="margin-bottom:20px;border-left:4px solid var(--accent-purple);">
+              <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+                <div>
+                  <h3 id="districtPortalTitle">District SC/ST Atrocity Management: Varanasi District</h3>
+                  <p style="font-size:0.86rem;color:var(--ink-soft);margin:0;">
+                    All cases within your district jurisdiction. Full victim identity visible for police action, compensation disbursement, and witness protection.
+                  </p>
+                </div>
+                <div style="display:flex;gap:8px;">
+                  <button class="btn btn-sm btn-purple" onclick="approveDistrictCompensation()">💰 Disburse Stage 1 Relief</button>
+                  <button class="btn btn-sm btn-ghost" onclick="deploySec15AEscort()">🛡️ Deploy Sec 15A Escort</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- District Table -->
+            <div class="district-table-container">
+              <table class="district-case-table">
+                <thead>
+                  <tr>
+                    <th>Case ID</th>
+                    <th>Survivor Name &amp; Contact</th>
+                    <th>Caste &amp; Offense</th>
+                    <th>Risk Score</th>
+                    <th>Statutory Relief Stage</th>
+                    <th>Police FIR &amp; Protection Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="districtCaseTableBody">
+                  <!-- Populated via app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ================================================================
+               TIER 3: STATE LEVEL (Aggregated & Anonymized)
+               ================================================================ -->
+          <div id="govtTier3Container" style="display:none;">
+            <div class="card" style="margin-bottom:20px;border-left:4px solid var(--accent-blue);">
+              <h3>State Welfare Department — Aggregated District Heatmap &amp; Resource Allocation</h3>
+              <p style="font-size:0.86rem;color:var(--ink-soft);">
+                <strong>Strict Privacy Protection:</strong> All personal files and victim names are masked (`SURV-UP-***`). View patterns, district-wise case counts, response times, and counselor resource gaps.
+              </p>
+            </div>
+
+            <!-- District High-Risk Heatmap -->
+            <h4 style="margin-bottom:10px;">District Risk Intensity &amp; Case Concentration:</h4>
+            <div class="heatmap-grid" id="stateHeatmapGrid">
+              <div class="district-heat-box critical">
+                <div style="font-size:0.82rem;font-weight:700;color:var(--urgent);">CRITICAL ZONE</div>
+                <h3 style="font-size:1.25rem;margin:4px 0;">Varanasi</h3>
+                <p style="font-size:0.82rem;color:var(--ink-soft);margin:0;">12 Active Cases (8 High/Crit)</p>
+                <span class="badge badge-urgent" style="margin-top:8px;">Avg FIR: 6.2h</span>
+              </div>
+
+              <div class="district-heat-box high">
+                <div style="font-size:0.82rem;font-weight:700;color:var(--marigold-dark);">HIGH PRIORITY</div>
+                <h3 style="font-size:1.25rem;margin:4px 0;">Bhiwani</h3>
+                <p style="font-size:0.82rem;color:var(--ink-soft);margin:0;">7 Active Cases (4 High)</p>
+                <span class="badge badge-gold" style="margin-top:8px;">Avg FIR: 8.4h</span>
+              </div>
+
+              <div class="district-heat-box high">
+                <div style="font-size:0.82rem;font-weight:700;color:var(--marigold-dark);">HIGH PRIORITY</div>
+                <h3 style="font-size:1.25rem;margin:4px 0;">Patna</h3>
+                <p style="font-size:0.82rem;color:var(--ink-soft);margin:0;">9 Active Cases (5 High)</p>
+                <span class="badge badge-gold" style="margin-top:8px;">Avg FIR: 9.1h</span>
+              </div>
+
+              <div class="district-heat-box moderate">
+                <div style="font-size:0.82rem;font-weight:700;color:var(--teal);">MODERATE ZONE</div>
+                <h3 style="font-size:1.25rem;margin:4px 0;">Gwalior</h3>
+                <p style="font-size:0.82rem;color:var(--ink-soft);margin:0;">4 Active Cases (1 High)</p>
+                <span class="badge badge-teal" style="margin-top:8px;">Avg FIR: 11.2h</span>
+              </div>
+            </div>
+
+            <!-- Resource Gap Card -->
+            <div class="resource-gap-card">
+              <h4>State Counselor &amp; Shelter Resource Gaps:</h4>
+              <div class="resource-gap-row">
+                <span style="width:140px;font-weight:600;font-size:0.86rem;">Varanasi District:</span>
+                <div style="flex:1;background:var(--line);height:12px;border-radius:6px;overflow:hidden;">
+                  <div style="width:85%;background:var(--urgent);height:100%;" title="85% capacity utilized"></div>
+                </div>
+                <span style="font-size:0.8rem;color:var(--urgent);font-weight:700;">+3 Counselors Needed</span>
+              </div>
+              <div class="resource-gap-row">
+                <span style="width:140px;font-weight:600;font-size:0.86rem;">Patna District:</span>
+                <div style="flex:1;background:var(--line);height:12px;border-radius:6px;overflow:hidden;">
+                  <div style="width:72%;background:var(--marigold);height:100%;" title="72% capacity utilized"></div>
+                </div>
+                <span style="font-size:0.8rem;color:var(--marigold-dark);font-weight:700;">+2 Counselors Needed</span>
+              </div>
+            </div>
+
+            <!-- Masked Case Roster -->
+            <h4 style="margin:20px 0 10px;">Anonymized Case Stream (Identity Masked for Policy Pattern Analysis):</h4>
+            <div class="district-table-container">
+              <table class="district-case-table">
+                <thead>
+                  <tr>
+                    <th>Anonymized Code</th>
+                    <th>District</th>
+                    <th>Demographics</th>
+                    <th>Offense Statute</th>
+                    <th>Intervention Stage</th>
+                  </tr>
+                </thead>
+                <tbody id="stateAnonymizedTableBody">
+                  <!-- Populated via app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ================================================================
+               TIER 4: NATIONAL LEVEL (MoSJE Macro Analytics)
+               ================================================================ -->
+          <div id="govtTier4Container" style="display:none;">
+            <div class="card" style="margin-bottom:20px;border-left:4px solid var(--teal-deep);">
+              <h3>Ministry of Social Justice &amp; Empowerment (MoSJE) — National Policy &amp; Budget Analytics</h3>
+              <p style="font-size:0.86rem;color:var(--ink-soft);">
+                Fully aggregated national statistics. Zero individual-identifiable data. Tracks scheme effectiveness, seasonal patterns, and statutory compensation disbursals across states.
+              </p>
+            </div>
+
+            <!-- Macro KPI Grid -->
+            <div class="national-macro-grid">
+              <div class="macro-kpi-box">
+                <div class="macro-kpi-val">₹48.2 Cr</div>
+                <span style="font-size:0.8rem;color:var(--ink-soft);">Total Relief Disbursed (National)</span>
+              </div>
+              <div class="macro-kpi-box">
+                <div class="macro-kpi-val" style="color:var(--success);">78.4%</div>
+                <span style="font-size:0.8rem;color:var(--ink-soft);">Interim Relief Released in 7 Days</span>
+              </div>
+              <div class="macro-kpi-box">
+                <div class="macro-kpi-val" style="color:var(--accent-purple);">91.2%</div>
+                <span style="font-size:0.8rem;color:var(--ink-soft);">Mandatory FIR Compliance Rate</span>
+              </div>
+              <div class="macro-kpi-box">
+                <div class="macro-kpi-val" style="color:var(--marigold-dark);">1,420</div>
+                <span style="font-size:0.8rem;color:var(--ink-soft);">Sec 15A Witness Orders Active</span>
+              </div>
+            </div>
+
+            <!-- State-Wise Scheme Effectiveness -->
+            <div class="card">
+              <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:8px;">
+                <h4 style="margin:0;">State-Wise Statutory Scheme Performance:</h4>
+                <span class="badge badge-teal" style="font-size:0.78rem;">👆 Click any state row to view case types &amp; counts</span>
+              </div>
+              <p style="font-size:0.86rem;color:var(--ink-soft);margin-bottom:14px;">
+                Click on any state row below to open deep interactive analytics with breakdown by offense types (assault, slurs, land arson, witness threats), victim relief status, and district hotspots.
+              </p>
+              <div class="district-table-container">
+                <table class="district-case-table interactive-state-table">
+                  <thead>
+                    <tr>
+                      <th>State / UT</th>
+                      <th>Total Reported Incidents</th>
+                      <th>Average FIR Registration Time</th>
+                      <th>Relief Budget Allocated</th>
+                      <th>Rehabilitation Settlement %</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="state-clickable-row" onclick="openStateDetailModal('Uttar Pradesh')">
+                      <td><strong>Uttar Pradesh</strong></td>
+                      <td><strong style="color:var(--teal-deep);font-size:0.95rem;">412 Cases</strong></td>
+                      <td>7.4 Hours</td>
+                      <td>₹14.20 Crore</td>
+                      <td><span class="badge badge-success">82% Completed</span></td>
+                      <td><button type="button" class="btn btn-sm btn-ghost" style="padding:4px 8px;font-size:0.75rem;">View Breakdown &rarr;</button></td>
+                    </tr>
+                    <tr class="state-clickable-row" onclick="openStateDetailModal('Bihar')">
+                      <td><strong>Bihar</strong></td>
+                      <td><strong style="color:var(--teal-deep);font-size:0.95rem;">288 Cases</strong></td>
+                      <td>8.9 Hours</td>
+                      <td>₹9.80 Crore</td>
+                      <td><span class="badge badge-success">74% Completed</span></td>
+                      <td><button type="button" class="btn btn-sm btn-ghost" style="padding:4px 8px;font-size:0.75rem;">View Breakdown &rarr;</button></td>
+                    </tr>
+                    <tr class="state-clickable-row" onclick="openStateDetailModal('Haryana')">
+                      <td><strong>Haryana</strong></td>
+                      <td><strong style="color:var(--teal-deep);font-size:0.95rem;">164 Cases</strong></td>
+                      <td>6.8 Hours</td>
+                      <td>₹6.40 Crore</td>
+                      <td><span class="badge badge-success">86% Completed</span></td>
+                      <td><button type="button" class="btn btn-sm btn-ghost" style="padding:4px 8px;font-size:0.75rem;">View Breakdown &rarr;</button></td>
+                    </tr>
+                    <tr class="state-clickable-row" onclick="openStateDetailModal('Madhya Pradesh')">
+                      <td><strong>Madhya Pradesh</strong></td>
+                      <td><strong style="color:var(--teal-deep);font-size:0.95rem;">342 Cases</strong></td>
+                      <td>9.2 Hours</td>
+                      <td>₹11.10 Crore</td>
+                      <td><span class="badge badge-gold">69% In Progress</span></td>
+                      <td><button type="button" class="btn btn-sm btn-ghost" style="padding:4px 8px;font-size:0.75rem;">View Breakdown &rarr;</button></td>
+                    </tr>
+                    <tr class="state-clickable-row" onclick="openStateDetailModal('Rajasthan')">
+                      <td><strong>Rajasthan</strong></td>
+                      <td><strong style="color:var(--teal-deep);font-size:0.95rem;">276 Cases</strong></td>
+                      <td>8.1 Hours</td>
+                      <td>₹9.20 Crore</td>
+                      <td><span class="badge badge-success">79% Completed</span></td>
+                      <td><button type="button" class="btn btn-sm btn-ghost" style="padding:4px 8px;font-size:0.75rem;">View Breakdown &rarr;</button></td>
+                    </tr>
+                    <tr class="state-clickable-row" onclick="openStateDetailModal('Gujarat')">
+                      <td><strong>Gujarat</strong></td>
+                      <td><strong style="color:var(--teal-deep);font-size:0.95rem;">198 Cases</strong></td>
+                      <td>7.1 Hours</td>
+                      <td>₹7.50 Crore</td>
+                      <td><span class="badge badge-success">84% Completed</span></td>
+                      <td><button type="button" class="btn btn-sm btn-ghost" style="padding:4px 8px;font-size:0.75rem;">View Breakdown &rarr;</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ====================================================================
+         VIEW 7: RIGHTS & LEGAL COMPENSATION
+         ==================================================================== -->
+    <div class="view" id="view-rights">
+      <section>
+        <div class="wrap">
+          <h2>Your Rights Under the SC/ST (Prevention of Atrocities) Act</h2>
+          <p class="lede">The law provides strong, non-negotiable guarantees for victims and witnesses of caste atrocities.</p>
+
+          <div class="rights-hero-card">
+            <h3 style="color:var(--teal-deep);margin-bottom:8px;">Crucial Legal Protections You Must Know</h3>
+            <ul style="padding-left:20px;color:var(--ink);font-size:0.96rem;">
+              <li style="margin-bottom:8px;"><strong>Mandatory Registration of FIR:</strong> Under Section 4, a public servant who delays registering an FIR commits a punishable offense.</li>
+              <li style="margin-bottom:8px;"><strong>Zero FIR Right:</strong> You can file an FIR at ANY police station regardless of jurisdiction.</li>
+              <li style="margin-bottom:8px;"><strong>Free Legal Representation:</strong> Under NALSA, every SC/ST survivor is entitled to a free advocate funded by the state.</li>
+              <li style="margin-bottom:8px;"><strong>Statutory Relief:</strong> Relief is payable in stages starting immediately after the FIR, independent of conviction.</li>
+              <li style="margin-bottom:8px;"><strong>Witness Protection:</strong> Section 15A guarantees armed police protection and immediate bail cancellation for accused.</li>
+            </ul>
+          </div>
+
+          <div class="rights-columns">
+            <div>
+              <h3>Statutory Relief &amp; Compensation Scales</h3>
+              <div class="table-responsive">
+                <table class="rights-table">
+                  <thead>
+                    <tr>
+                      <th>Offense / Situation</th>
+                      <th>Minimum Relief Amount</th>
+                      <th>Payment Stages</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>Rape / Gang Rape</strong></td>
+                      <td>₹5,00,000 to ₹8,25,000</td>
+                      <td>50% after medical exam &amp; FIR; 25% on charge sheet; 25% after trial.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Murder / Death of earning member</strong></td>
+                      <td>₹8,25,000 + Pension / Employment</td>
+                      <td>50% after post-mortem &amp; FIR; 50% on charge sheet. Plus widow/family pension.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Grievous Hurt / Permanent Disability</strong></td>
+                      <td>₹4,25,000 to ₹8,25,000</td>
+                      <td>50% after medical report; 50% on charge sheet.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Arson / Burning of Home</strong></td>
+                      <td>Full rebuilding cost + ₹1,00,000</td>
+                      <td>Immediate brick-by-brick reconstruction assistance.</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Public Humiliation / Caste Slurs / Boycott</strong></td>
+                      <td>₹1,00,000 to ₹2,00,000</td>
+                      <td>25% on FIR, 50% on charge sheet, 25% on trial conclusion.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <div class="card" style="background:var(--paper-card);border:1.5px solid var(--teal-subtle);">
+                <h3 style="color:var(--teal-deep);">What to do if Police Refuse FIR?</h3>
+                <ol style="padding-left:20px;font-size:0.92rem;color:var(--ink-soft);margin:14px 0;">
+                  <li style="margin-bottom:8px;"><strong>Send by Registered Post:</strong> Under Section 154(3) CrPC / Sec 175 BNSS to the Superintendent of Police (SP).</li>
+                  <li style="margin-bottom:8px;"><strong>Contact DLSA (15100):</strong> Free advocate can file a Section 156(3) application before the Magistrate.</li>
+                  <li style="margin-bottom:8px;"><strong>National SC/ST Commission:</strong> File online at <a href="https://ncsc.nic.in" target="_blank" rel="noopener">ncsc.nic.in</a>.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ====================================================================
+         VIEW 8: PRIVACY & SAFETY
+         ==================================================================== -->
+    <div class="view" id="view-privacy">
+      <section>
+        <div class="wrap">
+          <h2>Privacy, Safety &amp; Device Security</h2>
+          <div class="privacy-grid">
+            <div>
+              <div class="card" style="margin-bottom:20px;">
+                <h3>Zero Tracking Guarantee</h3>
+                <p>
+                  Sahaay Setu does not track your location, does not store cookies, and sends zero diagnostic telemetry to third parties.
+                </p>
+              </div>
+              <div class="card">
+                <h3>Quick Exit Feature</h3>
+                <p>Press <strong>Esc</strong> or tap <strong>Quick Exit</strong> at the bottom right to immediately leave to Google.</p>
+              </div>
+            </div>
+
+            <div>
+              <details class="faq" open>
+                <summary>How do I erase this visit from my mobile phone history?</summary>
+                <p>Chrome: Three dots &gt; History &gt; Clear data.<br>Safari: Book icon &gt; History &gt; Clear.</p>
+              </details>
+              <details class="faq">
+                <summary>Can anyone intercept my conversation with Sahaay Mitra?</summary>
+                <p>No. The AI agent runs via client-side logic embedded directly in this browser session.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h3>Sahaay Setu (सहाय सेतु)</h3>
+          <p style="font-size:0.9rem;color:#9FB0A9;">
+            A compassionate bridge for survivors, witnesses, and government officials working under the SC/ST (POA) Act.
+          </p>
+        </div>
+
+        <div>
+          <h3>Direct Emergency Hotlines</h3>
+          <ul class="footer-links-list">
+            <li><a href="tel:112">🚨 Police &amp; Emergency: 112</a></li>
+            <li><a href="tel:181">👩 Women in Distress: 181</a></li>
+            <li><a href="tel:15100">⚖️ NALSA Legal Aid: 15100</a></li>
+            <li><a href="tel:14416">🧠 Tele-MANAS Counselling: 14416</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Dual Portals &amp; Login</h3>
+          <ul class="footer-links-list">
+            <li><a href="#user-login" onclick="openUserLoginModal(event)">👤 Citizen / User Case Login</a></li>
+            <li><a href="#govt-portal" onclick="openGovtLoginModal(event)">🏛️ Government Official Login (4 Tiers)</a></li>
+            <li><a href="#describe" data-view="describe">Report Incident &amp; Provide Info</a></li>
+            <li><a href="#rights" data-view="rights">Statutory Rights &amp; Relief Scale</a></li>
+            <li><a href="#helplines" data-view="helplines">Verified Helplines &amp; Portals</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="fine-print">
+        <strong>Important Disclaimer:</strong> Sahaay Setu is an independent public legal awareness platform designed to assist survivors with emergency contacts and statutory information under the Scheduled Castes and Scheduled Tribes (Prevention of Atrocities) Act, 1989.
+      </div>
+    </div>
+  </footer>
+
+  <!-- State Atrocity Analytics Modal -->
+  <div class="govt-login-modal" id="stateDetailModal" role="dialog" aria-modal="true" aria-labelledby="stateModalTitle">
+    <div class="govt-login-card state-modal-card">
+      <div class="govt-login-header" style="background: linear-gradient(135deg, #092622 0%, #0D5C4D 100%);">
+        <div>
+          <h3 id="stateModalTitle" style="margin:0;font-size:1.15rem;color:#ffffff;">🏛️ State Case Analytics &amp; Breakdown</h3>
+          <span id="stateModalSubtitle" style="font-size:0.8rem;color:#D1DFDB;">SC/ST (POA) Act Statutory Tracking</span>
+        </div>
+        <button class="drawer-close-btn" id="stateModalCloseBtn" onclick="closeStateDetailModal()" style="color:#fff;" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="govt-login-body state-modal-body" id="stateModalBody">
+        <!-- Rendered dynamically by openStateDetailModal(stateName) -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Floating Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" aria-label="Scroll back to top" title="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <!-- JavaScript Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
